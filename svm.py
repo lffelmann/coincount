@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 
 import coincount_lib as ccl
 
+
 def svm(arg: Any = None) -> None:
     """
     Program to create and save a new Support Vector Machine.
@@ -42,6 +43,7 @@ def svm(arg: Any = None) -> None:
         ccl.svm_writemodel(model_save, model)  # safe model
     except:
         raise
+
 
 if __name__ == '__main__':
     svm()
