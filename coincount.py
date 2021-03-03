@@ -1,5 +1,5 @@
 """
-Program to count the coins on a picture.
+Program to count the value of coins on an image.
 """
 
 import coincount_lib as ccl
