@@ -18,6 +18,7 @@ if __name__ == '__main__':
         cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5)))   # resize image
         cntr = ccl.contour(image, threshold=90)   # get contours
 
+        cv2.imshow('blur', cv2.resize(cntr[2], (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show blur
         cv2.imshow('bnry', cv2.resize(cntr[3], (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5)))) # show binary
 
         for c in cntr[0]:
@@ -69,6 +70,7 @@ if __name__ == '__main__':
 
         print('Money:', money)
 
+        cv2.destroyWindow('blur')
         cv2.destroyWindow('bnry')
         cv2.waitKey(0)
     except:
