@@ -53,7 +53,7 @@ if __name__ == '__main__':
         model = ccl.svm_readmodel('./svm/model.sav')    # load model
 
         pred = model.predict(coin)  # predict coins
-        pred = ndarray.tolist(pred)
+        pred = ndarray.tolist(pred) # to array
 
         for i in range(0, len(coin)):   # calc money
             print('Coin', i, ':', pred[i], 'cnts')
