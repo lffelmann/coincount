@@ -9,7 +9,7 @@ import csv
 import pickle
 from typing import Any
 
-def contour(image: Any, blur: int=5, threshold: int=110) -> list:
+def contour(image: Any, blur: int=3, threshold: int=110) -> list:
     """
     Returns the contours of object in a image.
 
