@@ -3,6 +3,7 @@ Program to add new coins to csv files.
 """
 
 import cv2
+
 import coincount_lib as ccl
 
 if __name__ == '__main__':
@@ -16,7 +17,7 @@ if __name__ == '__main__':
         cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5)))  # resize image
         cntr = ccl.contour(image, threshold=90)  # get contours
 
-        cv2.imshow('bnry', cv2.resize(cntr[3], (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5)))) # show binary
+        cv2.imshow('bnry', cv2.resize(cntr[3], (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show binary
 
         for c in cntr[0]:
             circ = ccl.circle(c, image, min_area=700)  # check if contour is a circle
@@ -25,7 +26,7 @@ if __name__ == '__main__':
             if circ[0] is True:
                 x, y, _, _ = cv2.boundingRect(c)
                 cv2.drawContours(image, [c], -1, (0, 255, 0), 5)  # draw green around circles
-                cv2.putText(image, str(number_coins), (x, y), cv2.FONT_ITALIC, 3, (0, 0, 0), 2) # write number of coin
+                cv2.putText(image, str(number_coins), (x, y), cv2.FONT_ITALIC, 3, (0, 0, 0), 2)  # write number of coin
                 coin.append([circ[1], circ[2], circ[3], circ[4], circ[5]])  # append values of circle to list
                 number_coins += 1  # rise number of coins +1
             elif rect[0] is True:
