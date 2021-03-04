@@ -1,30 +1,56 @@
 """
 Program to count the value of coins on an image.
 """
+from typing import Any
 
 import cv2
 from numpy import ndarray
 
 import coincount_lib as ccl
 
-if __name__ == '__main__':
+
+def count(arg: Any = None) -> None:
+    """
+    Program to count the value of coins on an image.
+
+    Parameters:
+        arg (Any): Arguments from argparse.
+    """
     try:
-        ref_mm = [35, 50]
+        ref_mm = []
+        if arg is None:
+            ref_mm = [35, 50]
+            image_path = './test.jpg'
+            blur = 3
+            threshold = 110
+            acc_coin = 0.15
+            acc_rect = 0.01
+            model_path = './svm/model.sav'
+        else:
+            ref_mm.append(arg.refa)
+            ref_mm.append(arg.refb)
+            image_path = arg.image
+            blur = arg.blur
+            threshold = arg.threshold
+            acc_coin = arg.acc_coin
+            acc_rect = arg.acc_rect
+            model_path = arg.model
+
         coin = []  # list to save values of coins
         number_coins = 0  # save number of coins
         number_rect = 0  # save number of rectangles
         money = 0  # value of money
 
-        image = cv2.imread('./test.jpg')  # read image
+        image = cv2.imread(image_path)  # read image
         cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5)))  # resize image
-        cntr = ccl.contour(image, threshold=90)  # get contours
+        cntr = ccl.contour(image, blur=blur, threshold=threshold)  # get contours
 
         cv2.imshow('blur', cv2.resize(cntr[2], (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show blur
         cv2.imshow('bnry', cv2.resize(cntr[3], (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show binary
 
         for c in cntr[0]:
-            circ = ccl.circle(c, image, min_area=700)  # check if contour is a circle
-            rect = ccl.rectangle(c, min_area=1000)  # check if contour is a rectangle
+            circ = ccl.circle(c, image, accuracy=acc_coin, min_area=700)  # check if contour is a circle
+            rect = ccl.rectangle(c, accuracy=acc_rect, min_area=1000)  # check if contour is a rectangle
 
             if circ[0] is True:
                 x, y, _, _ = cv2.boundingRect(c)
@@ -43,7 +69,11 @@ if __name__ == '__main__':
             raise Exception('Error: There are less or more reference rectangles than 1.')
 
         cv2.imshow('image', cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show image
-        cv2.waitKey(0)
+
+        if input('Image OK?: ') is (
+                'n' or 'no' or 'N' or 'No' or 'NO' or '0' or '-1'):  # ask if img is ok if not close prg
+            print('Program closed.')
+            return
 
         len_pxl = ccl.len_pixel(ref_mm, ref_pxl)  # get length of pixel
 
@@ -51,7 +81,7 @@ if __name__ == '__main__':
             for i in range(0, 2):
                 coin[c][i] = ccl.convert_len(len_pxl, coin[c][i])
 
-        model = ccl.svm_readmodel('./svm/model.sav')  # load model
+        model = ccl.svm_readmodel(model_path)  # load model
 
         pred = model.predict(coin)  # predict coins
         pred = ndarray.tolist(pred)  # to array
@@ -74,5 +104,12 @@ if __name__ == '__main__':
         cv2.destroyWindow('blur')
         cv2.destroyWindow('bnry')
         cv2.waitKey(0)
+    except:
+        raise
+
+
+if __name__ == '__main__':
+    try:
+        count()
     except:
         raise
