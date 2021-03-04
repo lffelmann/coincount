@@ -19,7 +19,7 @@ def new(arg: Any = None) -> None:
         ref_mm = []
         if arg is None:
             ref_mm = [35, 50]
-            image_path = 'test.jpg'
+            image_path = './test.jpg'
             blur = 3
             threshold = 110
             acc_coin = 0.15
