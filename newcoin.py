@@ -1,27 +1,52 @@
 """
 Program to add new coins to csv files.
 """
+from typing import Any
 
 import cv2
 
 import coincount_lib as ccl
 
-if __name__ == '__main__':
+
+def new(arg: Any = None):
+    """
+    Program to add new coins to csv files.
+
+    Parameters:
+        arg (Any): Arguments from argparse.
+    """
     try:
-        ref_mm = [35, 50]
+        ref_mm = []
+        if arg is None:
+            ref_mm = [35, 50]
+            image_path = 'test.jpg'
+            blur = 3
+            threshold = 110
+            acc_coin = 0.15
+            acc_rect = 0.01
+        else:
+            ref_mm.append(arg.refa)
+            ref_mm.append(arg.refb)
+            image_path = arg.image
+            blur = arg.blur
+            threshold = arg.threshold
+            acc_coin = arg.acc_coin
+            acc_rect = arg.acc_rect
+
         coin = []  # list to save values of coins
         number_coins = 0  # save number of coins
         number_rect = 0  # save number of rectangles
 
-        image = cv2.imread('test.jpg')  # read image
+        image = cv2.imread(image_path)  # read image
         cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5)))  # resize image
-        cntr = ccl.contour(image, threshold=90)  # get contours
+        cntr = ccl.contour(image, blur=blur, threshold=threshold)  # get contours
 
+        cv2.imshow('blur', cv2.resize(cntr[2], (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show blur
         cv2.imshow('bnry', cv2.resize(cntr[3], (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show binary
 
         for c in cntr[0]:
-            circ = ccl.circle(c, image, min_area=700)  # check if contour is a circle
-            rect = ccl.rectangle(c, min_area=1000)  # check if contour is a rectangle
+            circ = ccl.circle(c, image, accuracy=acc_coin, min_area=700)  # check if contour is a circle
+            rect = ccl.rectangle(c, accuracy=acc_rect, min_area=1000)  # check if contour is a rectangle
 
             if circ[0] is True:
                 x, y, _, _ = cv2.boundingRect(c)
@@ -48,21 +73,33 @@ if __name__ == '__main__':
             for i in range(0, 2):
                 coin[c][i] = ccl.convert_len(len_pxl, coin[c][i])
 
-        number_of_coin = int(input('Which coin should be added?: '))
-        type_of_coin = int(input('What type of coin?: '))
+        cv2.destroyWindow('blur')
+        cv2.destroyWindow('bnry')
 
-        if type_of_coin == 1:
-            path = './svm/csvfiles/1cnts.csv'
-        elif type_of_coin == 2:
-            path = './svm/csvfiles/2cnts.csv'
-        elif type_of_coin == 5:
-            path = './svm/csvfiles/5cnts.csv'
-        elif type_of_coin == 10:
-            path = './svm/csvfiles/10cnts.csv'
-        elif type_of_coin == 20:
-            path = './svm/csvfiles/20cnts.csv'
+        for i in range(0, len(coin)):  # add coins
+            type_of_coin = input('What type of coin is coin', i, '?: ')
 
-        ccl.svm_writecsv(path, [coin[number_of_coin]])
+            if type_of_coin == '1':
+                path = './svm/csvfiles/1cnts.csv'
+            elif type_of_coin == '2':
+                path = './svm/csvfiles/2cnts.csv'
+            elif type_of_coin == '5':
+                path = './svm/csvfiles/5cnts.csv'
+            elif type_of_coin == '10':
+                path = './svm/csvfiles/10cnts.csv'
+            elif type_of_coin == '20':
+                path = './svm/csvfiles/20cnts.csv'
+            else:
+                print('Coin was not added.')
 
+            ccl.svm_writecsv(path, [coin[i]])
+
+    except:
+        raise
+
+
+if __name__ == '__main__':
+    try:
+        new()
     except:
         raise
