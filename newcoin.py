@@ -8,7 +8,7 @@ import cv2
 import coincount_lib as ccl
 
 
-def new(arg: Any = None):
+def new(arg: Any = None) -> None:
     """
     Program to add new coins to csv files.
 
