@@ -72,7 +72,7 @@ def count(arg: Any = None) -> None:
         cv2.waitKey(0)
 
         image_ok = input('Image OK?: ')
-        if image_ok is 'n' or image_ok is 'no' or image_ok is 'N' or image_ok is 'No' or image_ok is 'NO' or image_ok is '0' or image_ok is '-1':  # ask if img is ok if not close prg
+        if image_ok == 'n' or image_ok == 'no' or image_ok == 'N' or image_ok == 'No' or image_ok == 'NO' or image_ok == '0' or image_ok == '-1':  # ask if img is ok if not close prg
             print('Program closed.')
             return
 
