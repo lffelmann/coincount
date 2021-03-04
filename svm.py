@@ -19,7 +19,7 @@ def svm(arg: Any = None) -> None:
     """
     try:
         if arg is None:
-            model_save = 'svm/model.sav'
+            model_save = './svm/model.sav'
         else:
             model_save = arg.model
 
