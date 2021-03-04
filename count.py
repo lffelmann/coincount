@@ -69,9 +69,10 @@ def count(arg: Any = None) -> None:
             raise Exception('Error: There are less or more reference rectangles than 1.')
 
         cv2.imshow('image', cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show image
+        cv2.waitKey(0)
 
-        if input('Image OK?: ') is (
-                'n' or 'no' or 'N' or 'No' or 'NO' or '0' or '-1'):  # ask if img is ok if not close prg
+        image_ok = input('Image OK?: ')
+        if image_ok is 'n' or image_ok is 'no' or image_ok is 'N' or image_ok is 'No' or image_ok is 'NO' or image_ok is '0' or image_ok is '-1':  # ask if img is ok if not close prg
             print('Program closed.')
             return
 
