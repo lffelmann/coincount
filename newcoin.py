@@ -77,22 +77,26 @@ def new(arg: Any = None):
         cv2.destroyWindow('bnry')
 
         for i in range(0, len(coin)):  # add coins
-            type_of_coin = input('What type of coin is coin', i, '?: ')
+            input_str = 'What type of coin is coin ' + str(i) + '?: '
+            type_of_coin = input(input_str)
 
             if type_of_coin == '1':
                 path = './svm/csvfiles/1cnts.csv'
+                ccl.svm_writecsv(path, [coin[i]])
             elif type_of_coin == '2':
                 path = './svm/csvfiles/2cnts.csv'
+                ccl.svm_writecsv(path, [coin[i]])
             elif type_of_coin == '5':
                 path = './svm/csvfiles/5cnts.csv'
+                ccl.svm_writecsv(path, [coin[i]])
             elif type_of_coin == '10':
                 path = './svm/csvfiles/10cnts.csv'
+                ccl.svm_writecsv(path, [coin[i]])
             elif type_of_coin == '20':
                 path = './svm/csvfiles/20cnts.csv'
+                ccl.svm_writecsv(path, [coin[i]])
             else:
                 print('Coin was not added.')
-
-            ccl.svm_writecsv(path, [coin[i]])
 
     except:
         raise
