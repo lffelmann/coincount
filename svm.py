@@ -46,4 +46,7 @@ def svm(arg: Any = None) -> None:
 
 
 if __name__ == '__main__':
-    svm()
+    try:
+        svm()
+    except:
+        raise
