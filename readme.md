@@ -3,6 +3,8 @@
 CoinCount is a program to count the value of coins in an image.
 
 ## Programs
+**coincount.py:**
+To use te progrms from comand line.
 
 **count.py:** 
 Counts the value of coins in an image.
