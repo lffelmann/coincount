@@ -63,8 +63,7 @@ def circle(contour: list, image: Any, accuracy: float = 0.15, min_area: float = 
             masked = cv2.bitwise_and(image, image, mask=mask)
             color = cv2.mean(masked, mask)
             return [True, area, perimeter, color[0], color[1], color[2]]
-        else:
-            return [False]
+        return [False]
     except:
         raise
 
@@ -105,8 +104,7 @@ def rectangle(contour: list, accuracy: float = 0.01, min_area: float = 0) -> lis
             a = (length[0] + length[2]) / 2  # average length of side a
             b = (length[1] + length[3]) / 2  # average length of side b
             return [True, a, b]
-        else:
-            return [False]
+        return [False]
     except:
         raise
 
