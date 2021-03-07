@@ -1,5 +1,7 @@
 # CoinCount
 
+[![CodeFactor](https://www.codefactor.io/repository/github/lffelmann/coincount/badge)](https://www.codefactor.io/repository/github/lffelmann/coincount)
+
 CoinCount is a program to count the value of coins in an image.
 
 ## Programs
