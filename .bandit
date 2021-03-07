@@ -1,2 +1,2 @@
 [bandit]
-tests: B301
+skips: B301
