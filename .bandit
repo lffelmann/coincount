@@ -1,2 +1,2 @@
 [bandit]
-exclude: B301
+tests: B301
