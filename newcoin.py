@@ -69,32 +69,32 @@ def new(arg: Any = None) -> None:
 
         len_pxl = ccl.len_pixel(ref_mm, ref_pxl)  # get length of pixel
 
-        for c in range(0, len(coin)):  # convert area and perimeter to mm
+        for c in coin:  # convert area and perimeter to mm
             for i in range(0, 2):
-                coin[c][i] = ccl.convert_len(len_pxl, coin[c][i])
+                c[i] = ccl.convert_len(len_pxl, c[i])
 
         cv2.destroyWindow('blur')
         cv2.destroyWindow('bnry')
 
-        for i in range(0, len(coin)):  # add coins
+        for i, c in enumerate(coin):  # add coins
             input_str = 'What type of coin is coin ' + str(i) + '?: '
             type_of_coin = input(input_str)
 
             if type_of_coin == '1':
                 path = './svm/csvfiles/1cnts.csv'
-                ccl.svm_writecsv(path, [coin[i]])
+                ccl.svm_writecsv(path, [c])
             elif type_of_coin == '2':
                 path = './svm/csvfiles/2cnts.csv'
-                ccl.svm_writecsv(path, [coin[i]])
+                ccl.svm_writecsv(path, [c])
             elif type_of_coin == '5':
                 path = './svm/csvfiles/5cnts.csv'
-                ccl.svm_writecsv(path, [coin[i]])
+                ccl.svm_writecsv(path, [c])
             elif type_of_coin == '10':
                 path = './svm/csvfiles/10cnts.csv'
-                ccl.svm_writecsv(path, [coin[i]])
+                ccl.svm_writecsv(path, [c])
             elif type_of_coin == '20':
                 path = './svm/csvfiles/20cnts.csv'
-                ccl.svm_writecsv(path, [coin[i]])
+                ccl.svm_writecsv(path, [c])
             else:
                 print('Coin was not added.')
 

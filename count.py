@@ -78,9 +78,9 @@ def count(arg: Any = None) -> None:
 
         len_pxl = ccl.len_pixel(ref_mm, ref_pxl)  # get length of pixel
 
-        for c in range(0, len(coin)):  # convert area and perimeter to mm
+        for c in coin:  # convert area and perimeter to mm
             for i in range(0, 2):
-                coin[c][i] = ccl.convert_len(len_pxl, coin[c][i])
+                c[i] = ccl.convert_len(len_pxl, c[i])
 
         model = ccl.svm_readmodel(model_path)  # load model
 
