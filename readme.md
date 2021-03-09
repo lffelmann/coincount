@@ -2,6 +2,8 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/lffelmann/coincount/badge)](https://www.codefactor.io/repository/github/lffelmann/coincount)
 
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/lffelmann/coincount.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/lffelmann/coincount/context:python)
+
 CoinCount is a program to count the value of coins in an image.
 
 ## Programs
