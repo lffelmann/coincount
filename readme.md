@@ -4,6 +4,8 @@
 
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/lffelmann/coincount.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/lffelmann/coincount/context:python)
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b082a17896db428d98e184dd15213f30)](https://www.codacy.com/gh/lffelmann/coincount/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lffelmann/coincount&amp;utm_campaign=Badge_Grade)
+
 CoinCount is a program to count the value of coins in an image.
 
 ## Programs
