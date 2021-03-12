@@ -1,6 +1,5 @@
-"""
-Program to count the value of coins on an image.
-"""
+"""Program to count the value of coins on an image."""
+
 from typing import Any
 
 import cv2

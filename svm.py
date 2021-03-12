@@ -1,9 +1,8 @@
-"""
-Program to create and save a new Support Vector Machine.
-"""
+"""Program to create and save a new Support Vector Machine."""
+
 from typing import Any
 
-from sklearn import svm as supvecmac
+from sklearn import svm as svma
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 
@@ -32,7 +31,7 @@ def svm(arg: Any = None) -> None:
         X_train, X_test, y_train, y_test = train_test_split(data_target[0], data_target[1],
                                                             test_size=0.25)  # split dataset
 
-        model = supvecmac.SVC(kernel='linear')  # create model
+        model = svma.SVC(kernel='linear')  # create model
 
         model.fit(X_train, y_train)  # train model
 

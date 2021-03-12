@@ -1,6 +1,4 @@
-"""
-Library with all the functions for CoinCount!
-"""
+"""Library with all the functions for CoinCount!"""
 
 import csv
 import pickle
@@ -151,7 +149,6 @@ def convert_len(length_of_pixel: float, length_in_pixel: float) -> float:
 def svm_readcsv(path: str, target_val: Any, list_data: list = None, list_target: list = None) -> list:
     """
     Reads data from csv to list and adds target to list.
-    
     Used for Support Vector Machine.
 
     Parameters:

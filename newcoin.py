@@ -1,6 +1,5 @@
-"""
-Program to add new coins to csv files.
-"""
+"""Program to add new coins to csv files."""
+
 from typing import Any
 
 import cv2

@@ -1,6 +1,4 @@
-"""
-Program to use all the CoinCount programs from the command line.
-"""
+"""Program to use all the CoinCount programs from the command line."""
 
 import argparse
 
