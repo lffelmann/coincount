@@ -16,9 +16,11 @@ CoinCount is a program to count the value of coins in an image with the help of 
 * White background.
 * Reference object has to be black and a rectangle.
 
+
 ## Programs
 ### coincount.py:
 Using the programs from comand line.
+
 
 ### count.py:
 Counts the value of coins in an image.
@@ -30,12 +32,14 @@ Counts the value of coins in an image.
 4. Converts area and perimeter of coin with reference object.
 5. Predict value of coins and count coins.
 
+
 ### newcoin.py: 
 Adds new coins to the CSV-files for training a Support Vector Machine.
 
 **Procedure:**
 1. 1 to 4 like count.py
 2. Write perimeter, area and mean color to csv file.
+
 
 ### svm.py:
 Trains a Support Vector Machine.
@@ -45,8 +49,10 @@ Trains a Support Vector Machine.
 2. Train SVM.
 3. Write SVM to file.
 
+
 ### coincount.lib:
 Library for the programs.
+
 
 ## Needed Libraries
 
