@@ -6,9 +6,9 @@
 
 CoinCount is a program to count the value of coins in an image with the help of a SVM.
 > ONLY FOR FOLLOWING EUR COINS
-> *  1 cent
-> *  2 cent
-> *  5 cent
+> *   1 cent
+> *   2 cent
+> *   5 cent
 
 ## Properties of image
 *  White background.
