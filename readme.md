@@ -9,8 +9,7 @@ CoinCount is a program to count the value of coins in an image with the help of 
 > * 1 cent
 > * 2 cent
 > * 5 cent
-> * 10 cent
-> * 20 cent
+
 
 ## Properties of image:
 * White background.
