@@ -6,52 +6,45 @@
 
 CoinCount is a program to count the value of coins in an image with the help of a SVM.
 > ONLY FOR FOLLOWING EUR COINS
-> * 1 cent
-> * 2 cent
-> * 5 cent
+> *  1 cent
+> *  2 cent
+> *  5 cent
 
-
-## Properties of image:
-* White background.
-* Reference object has to be black and a rectangle.
-
+## Properties of image
+*  White background.
+*  Reference object has to be black and a rectangle.
 
 ## Programs
-### coincount.py:
+### coincount.py
 Using the programs from comand line.
 
-
-### count.py:
+### count.py
 Counts the value of coins in an image.
 
 **Procedure:**
-1. Creates binary image out of input image and get contours.
-2. Searches for coins and reference objct and gets perimeter, area, mean color (coin) and the length of the sides (reference object).
-3. Calculates length of pixel with reference object.
-4. Converts area and perimeter of coin with reference object.
-5. Predict value of coins and count coins.
+1.  Creates binary image out of input image and get contours.
+2.  Searches for coins and reference objct and gets perimeter, area, mean color (coin) and the length of the sides (reference object).
+3.  Calculates length of pixel with reference object.
+4.  Converts area and perimeter of coin with reference object.
+5.  Predict value of coins and count coins.
 
-
-### newcoin.py: 
+### newcoin.py 
 Adds new coins to the CSV-files for training a Support Vector Machine.
 
 **Procedure:**
-1. 1 to 4 like count.py
-2. Write perimeter, area and mean color to csv file.
+1.  1 to 4 like count.py
+2.  Write perimeter, area and mean color to csv file.
 
-
-### svm.py:
+### svm.py
 Trains a Support Vector Machine.
 
 **Procedure:**
-1. Read csv files.
-2. Train SVM.
-3. Write SVM to file.
+1.  Read csv files.
+2.  Train SVM.
+3.  Write SVM to file.
 
-
-### coincount.lib:
+### coincount.lib
 Library for the programs.
-
 
 ## Needed Libraries
 
