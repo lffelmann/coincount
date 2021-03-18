@@ -94,10 +94,6 @@ def count(arg: Any = None) -> None:
                 money += 0.02
             elif pred[i] == 5:
                 money += 0.05
-            elif pred[i] == 10:
-                money += 0.1
-            elif pred[i] == 20:
-                money += 0.2
 
         print('Money:', money)
 
