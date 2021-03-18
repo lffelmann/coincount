@@ -88,12 +88,6 @@ def new(arg: Any = None) -> None:
             elif type_of_coin == '5':
                 path = './svm/csvfiles/5cnts.csv'
                 ccl.svm_writecsv(path, [c])
-            elif type_of_coin == '10':
-                path = './svm/csvfiles/10cnts.csv'
-                ccl.svm_writecsv(path, [c])
-            elif type_of_coin == '20':
-                path = './svm/csvfiles/20cnts.csv'
-                ccl.svm_writecsv(path, [c])
             else:
                 print('Coin was not added.')
 
