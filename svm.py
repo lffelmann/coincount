@@ -25,8 +25,6 @@ def svm(arg: Any = None) -> None:
         data_target = ccl.svm_readcsv('./svm/csvfiles/1cnts.csv', 1)
         data_target = ccl.svm_readcsv('./svm/csvfiles/2cnts.csv', 2, data_target[0], data_target[1])
         data_target = ccl.svm_readcsv('./svm/csvfiles/5cnts.csv', 5, data_target[0], data_target[1])
-        data_target = ccl.svm_readcsv('./svm/csvfiles/10cnts.csv', 10, data_target[0], data_target[1])
-        data_target = ccl.svm_readcsv('./svm/csvfiles/20cnts.csv', 20, data_target[0], data_target[1])
 
         X_train, X_test, y_train, y_test = train_test_split(data_target[0], data_target[1],
                                                             test_size=0.25)  # split dataset
