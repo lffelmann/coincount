@@ -14,15 +14,15 @@ def new(arg: Any = None) -> None:
     Parameters:
         arg (Any): Arguments from argparse.
     """
-    try:
+    try:    #set if not from argparse
         ref_mm = []
         if arg is None:
-            ref_mm = [35, 50]
-            image_path = './test.jpg'
-            blur = 3
-            threshold = 110
-            acc_coin = 0.15
-            acc_rect = 0.01
+            ref_mm = [35, 50]   #reference object
+            image_path = './test.jpg'   #path of image
+            blur = 3    #value of gausian blur
+            threshold = 110 #threshold value for binary image
+            acc_coin = 0.15 #accuracy coin detection
+            acc_rect = 0.01 #accuracy rectangle detection
         else:
             ref_mm.append(arg.refa)
             ref_mm.append(arg.refb)
