@@ -16,15 +16,14 @@ def count(arg: Any = None) -> None:
         arg (Any): Arguments from argparse.
     """
     try:    #set if not from argparse
-        ref_mm = []
         if arg is None:
-            ref_mm = [35, 50]
-            image_path = './test.jpg'
-            blur = 3
-            threshold = 110
-            acc_coin = 0.15
-            acc_rect = 0.01
-            model_path = './svm/model.sav'
+            ref_mm = [35, 50]   #legth of reference object
+            image_path = './test.jpg'   #path of input image
+            blur = 3    #value of gausian blur
+            threshold = 110 #value of threshold for binary image
+            acc_coin = 0.15 #accuracy coin detection
+            acc_rect = 0.01 #accuracy rectangle detection
+            model_path = './svm/model.sav'  #path of saved svm model
         else:
             ref_mm.append(arg.refa)
             ref_mm.append(arg.refb)
