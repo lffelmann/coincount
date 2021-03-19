@@ -43,7 +43,7 @@ Trains a Support Vector Machine.
 2.  Train SVM.
 3.  Write SVM to file.
 
-### coincount.lib
+### coincount_lib.py
 Library for the programs.
 
 ## Needed Libraries
