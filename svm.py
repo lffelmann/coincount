@@ -16,12 +16,13 @@ def svm(arg: Any = None) -> None:
     Parameters:
         arg (Any): Arguments from argparse.
     """
-    try:
+    try:    #set of not from argparse
         if arg is None:
-            model_save = './svm/model.sav'
+            model_save = './svm/model.sav'  #path of file of saved svm model
         else:
             model_save = arg.model
-
+        
+        # read csv files
         data_target = ccl.svm_readcsv('./svm/csvfiles/1cnts.csv', 1)
         data_target = ccl.svm_readcsv('./svm/csvfiles/2cnts.csv', 2, data_target[0], data_target[1])
         data_target = ccl.svm_readcsv('./svm/csvfiles/5cnts.csv', 5, data_target[0], data_target[1])
