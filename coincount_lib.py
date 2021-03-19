@@ -56,10 +56,10 @@ def circle(contour: list, image: Any, accuracy: float = 0.15, min_area: float = 
         radius_perimeter = perimeter / (2 * pi)  # radius form perimeter
         if (radius_area * (1 - accuracy)) <= radius_perimeter <= (
                 radius_area * (1 + accuracy)) and area >= min_area:  # compare radius area perimeter
-            mask = np.zeros(image.shape[:2], dtype="uint8")
-            cv2.drawContours(mask, [contour], -1, 255, -1)
-            masked = cv2.bitwise_and(image, image, mask=mask)
-            color = cv2.mean(masked, mask)
+            mask = np.zeros(image.shape[:2], dtype="uint8") #create mask
+            cv2.drawContours(mask, [contour], -1, 255, -1)  #draw contours
+            masked = cv2.bitwise_and(image, image, mask=mask)   #merge mask and image
+            color = cv2.mean(masked, mask)  #get mean colour
             return [True, area, perimeter, color[0], color[1], color[2]]
         return [False]
     except:
