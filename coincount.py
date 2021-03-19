@@ -8,7 +8,7 @@ from svm import svm
 
 if __name__ == '__main__':
     try:
-        parser = argparse.ArgumentParser()
+        parser = argparse.ArgumentParser()  #create parser
         parser.add_argument('-svm', '--SupportVectorMachine', action='store_true', dest='svm',
                             help='If set start program to create and save Support Vector Machine.')
         parser.add_argument('-n', '--new', action='store_true', dest='new',
@@ -31,9 +31,8 @@ if __name__ == '__main__':
                             help='Accuracy to determine if contour is a rectangle or not.')
         arg = parser.parse_args()
 
-        if arg.svm is True:
+        if arg.svm is True: #check arguments
             svm(arg)
-
         elif arg.new is True:
             if arg.image is None:
                 print('Path of image is not set')
@@ -52,10 +51,8 @@ if __name__ == '__main__':
                 print('Reference B is not set')
             else:
                 count(arg)
-
         elif arg.count is True:
             pass
-
         else:
             print('No program chosen.')
     except:
