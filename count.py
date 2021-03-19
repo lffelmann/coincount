@@ -15,7 +15,7 @@ def count(arg: Any = None) -> None:
     Parameters:
         arg (Any): Arguments from argparse.
     """
-    try:
+    try:    #set if not from argparse
         ref_mm = []
         if arg is None:
             ref_mm = [35, 50]
