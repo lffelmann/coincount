@@ -56,3 +56,6 @@ Library for the programs.
 
 **numpy:**
 `pip install numpy`
+
+## Contribution
+Feel free to contribute: add new types of coins, improve the SVM, ...
