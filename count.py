@@ -16,6 +16,7 @@ def count(arg: Any = None) -> None:
         arg (Any): Arguments from argparse.
     """
     try:    #set if not from argparse
+        ref_mm = []
         if arg is None:
             ref_mm = [35, 50]   #legth of reference object
             image_path = './test.jpg'   #path of input image
@@ -66,7 +67,7 @@ def count(arg: Any = None) -> None:
         if number_rect != 1:
             raise Exception('Error: There are less or more reference rectangles than 1.')
 
-        cv2.imshow('image', cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show image
+        cv2.imshow('image', cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show detected element
         cv2.waitKey(0)
 
         image_ok = input('Image OK?: ')

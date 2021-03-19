@@ -63,7 +63,7 @@ def new(arg: Any = None) -> None:
         if number_rect != 1:
             raise Exception('Error: There are less or more reference rectangles than 1.')
 
-        cv2.imshow('image', cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))
+        cv2.imshow('image', cv2.resize(image, (int(image.shape[1] * 0.5), int(image.shape[0] * 0.5))))  # show detected elements
         cv2.waitKey(0)
 
         len_pxl = ccl.len_pixel(ref_mm, ref_pxl)  # get length of pixel
