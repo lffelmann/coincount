@@ -57,5 +57,9 @@ Library for the programs.
 **numpy:**
 `pip install numpy`
 
+## Example
+The following input image <img src="./test.jpg" alt="Input Image" heigth="200">
+
+
 ## Contribution
 Feel free to contribute: add new types of coins, improve the SVM, ...
