@@ -1,5 +1,4 @@
 # CoinCount
-
 [![CodeFactor](https://www.codefactor.io/repository/github/lffelmann/coincount/badge)](https://www.codefactor.io/repository/github/lffelmann/coincount)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/lffelmann/coincount.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/lffelmann/coincount/context:python)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b082a17896db428d98e184dd15213f30)](https://www.codacy.com/gh/lffelmann/coincount/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lffelmann/coincount&amp;utm_campaign=Badge_Grade)
@@ -47,7 +46,6 @@ Trains a Support Vector Machine.
 Library for the programs.
 
 ## Needed Libraries
-
 **openCV:** 
 `pip install opencv-python`
 
@@ -57,9 +55,16 @@ Library for the programs.
 **numpy:**
 `pip install numpy`
 
-## Example
-The following input image <img src="./test.jpg" alt="Input Image" heigth="200">
-
+## Example for coin detection and value calculation
+On the following input image<br>
+<img src="./test.jpg" alt="Input Image" width="250"><br>
+there can be detected following objects (blue...reference object, green...coin, red...unknown)<br>
+<img src="./detected_img.png" alt="Input Image" width="250"><br>
+and it creates following outputs.<br>
+>`Coin 0 : 1 cnts`<br>
+>`Coin 1 : 2 cnts`<br>
+>`Coin 2 : 5 cnts`<br>
+>`Money: 0.08`<br>
 
 ## Contribution
 Feel free to contribute: add new types of coins, improve the SVM, ...
